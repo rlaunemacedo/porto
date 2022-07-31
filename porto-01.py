@@ -14,11 +14,18 @@ import plotly.express as px
 # dfcirc = pd.read_csv('porto-itapoah-00.csv').query("Circulante == 'Ativo circulante'")
 df = pd.read_csv('porto-itapoah-00.csv')
 
+st.sidebar.subheader("Por: [R N Launé Macêdo](https://rlaunemacedo.github.io/)")
+st.sidebar.write("[Meus aplicativos](https://share.streamlit.io/)")
+st.sidebar.write(" \n")
+
+
+st.sidebar.write("Produzido com dados extraídos das Demonstrações Financeiras do Porto de Itapoá disponíveis no site da empresa no [link](https://www.portoitapoa.com/trabalhe_conosco/)")
+st.sidebar.subheader('Dicas:')
+st.sidebar.write('1. Para ver um ativo em particular, na legenda, dê um clique duplo;')
+st.sidebar.write('2. Para esconder um ativo em particular, na legenda, dê um clique simples;')
+
 st.header('Porto de Itapoá')
 st.subheader('Demonstrativo Financeiro (em milhares de reais - R$)')
-st.sidebar.header('Dicas:')
-st.sidebar.subheader('1. Para ver um ativo em particular, na legenda, dê um clique duplo;')
-st.sidebar.subheader('2. Para esconder um ativo em particular, na legenda, dê um clique simples;')
 
 dfcirc = df[df['Circulante'] == 'Ativo circulante']
 dfncirc = df[df['Circulante'] != 'Ativo circulante']
