@@ -11,35 +11,26 @@ import streamlit as st
 import plotly.express as px
 
 # Definindo um Data Frame
+# dfcirc = pd.read_csv('porto-itapoah-00.csv').query("Circulante == 'Ativo circulante'")
 df = pd.read_csv('porto-itapoah-00.csv')
 
-tipos = list(df['Circulante'].unique())
-ativos = list(df['Ativo'].unique())
-
-# Seletores
-tipo = st.sidebar.selectbox('Escolha o tipo',['Todos']+tipos)
-ativo = st.sidebar.selectbox('Escolha o ativo',['Todos']+ativos)
-
 st.header('Porto de Itapoá')
-st.subheader('Demonstrativo Financeiro')
+st.subheader('Demonstrativo Financeiro (em milhares de reais - R$)')
+st.sidebar.header('Dicas:')
+st.sidebar.subheader('1. Para ver um ativo em particular, na legenda, dê um clique duplo;')
+st.sidebar.subheader('2. Para esconder um ativo em particular, na legenda, dê um clique simples;')
 
-# Filtra os dados se apenas um pais conforme selecionado
-if(tipo != 'Todos'):
-    df = df[df['Circulante'] == tipo]
-    tipo_txt = tipo
-else:
-    tipo_txt = ''
+dfcirc = df[df['Circulante'] == 'Ativo circulante']
+dfncirc = df[df['Circulante'] != 'Ativo circulante']
 
-# ... além disso, filtra a variante caso seja selecionada uma
-if(ativo != 'Todos'):
-    df = df[df['Ativo'] == ativo]
-    ativo_txt = ativo
-else:
-    ativo_txt = 'todos os ativos'
+fig1 = px.line(dfcirc, x="Ano", y='Valor',hover_data={"Ano"}, 
+               color='Ativo',line_shape="spline")
+fig1.update_xaxes(dtick=1)
+fig1.update_layout(title='Circulante')
 
-fig_txt = 'Filtro: {} - {}'.format(tipo_txt,ativo_txt)
+fig2 = px.line(dfncirc, x="Ano", y='Valor',hover_data={"Ano"},color='Ativo',line_shape="spline")
+fig2.update_xaxes(dtick=1)
+fig2.update_layout(title='Não circulante')
 
-fig = px.line(df, x="Ano", y='Valor',hover_data={"Ano"},color='Ativo')
-fig.update_layout(title=fig_txt )
-
-st.plotly_chart(fig,use_container_width=True)
+st.plotly_chart(fig1,use_container_width=True)
+st.plotly_chart(fig2,use_container_width=True)
