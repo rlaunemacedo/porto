@@ -19,7 +19,7 @@ st.sidebar.write("[Meus aplicativos](https://share.streamlit.io/)")
 st.sidebar.write(" \n")
 
 
-st.sidebar.write("Produzido com dados extraídos das Demonstrações Financeiras do Porto de Itapoá disponíveis no site da empresa no [link](https://www.portoitapoa.com/trabalhe_conosco/)")
+st.sidebar.write("Produzido com dados extraídos das Demonstrações Financeiras do Porto de Itapoá disponíveis no site da empresa no seguinte [link](https://www.portoitapoa.com/)")
 st.sidebar.subheader('Dicas:')
 st.sidebar.write('1. Para ver um ativo em particular, na legenda, dê um clique duplo;')
 st.sidebar.write('2. Para esconder um ativo em particular, na legenda, dê um clique simples;')
