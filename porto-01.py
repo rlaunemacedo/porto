@@ -38,13 +38,11 @@ dfncirc = df[df['Circulante'] != 'Ativo circulante']
 #                 },
 #                title="Manually Specified Labels")
 
-fig1 = px.line(dfcirc, x="Ano", y='Valor',hover_data={"Ano"},color='Ativo',line_shape="spline",labels={
-                     "Valor": "Valor (x1000)",
-                     "Ativo": "Ativos"})
+fig1 = px.line(dfcirc, x="Ano", y='Valor',hover_data={"Ano"},color='Ativo',line_shape="spline",labels={"Valor": "Valor (x1000)","Ativo": "Ativos"})
 fig1.update_xaxes(dtick=1)
 fig1.update_layout(title='Circulante')
 
-fig2 = px.line(dfncirc, x="Ano", y='Valor',hover_data={"Ano"},color='Ativo',line_shape="spline")
+fig2 = px.line(dfncirc, x="Ano", y='Valor',hover_data={"Ano"},color='Ativo',line_shape="spline",labels={"Valor": "Valor (x1000)","Ativo": "Ativos"})
 fig2.update_xaxes(dtick=1)
 fig2.update_layout(title='Não circulante')
 
