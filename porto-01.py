@@ -21,8 +21,8 @@ st.sidebar.write(" \n")
 
 st.sidebar.write("Produzido com dados extraídos das Demonstrações Financeiras do Porto de Itapoá disponíveis no site da empresa no seguinte [link](https://www.portoitapoa.com/)")
 st.sidebar.subheader('Dicas:')
-st.sidebar.write('1. Para ver um ativo em particular, na legenda, dê um clique duplo;')
-st.sidebar.write('2. Para esconder um ativo em particular, na legenda, dê um clique simples;')
+st.sidebar.write('1. Para ver um ativo em particular, na legenda, dê um clique duplo sobre o ativo;')
+st.sidebar.write('2. Para esconder um ativo em particular, na legenda, dê um clique simples sobre o ativo.')
 
 st.markdown("<h4 style='text-align: center; color: blue;'>Porto de Itapoá</h1>", unsafe_allow_html=True)
 st.markdown("<h6 style='text-align: center; color: black;'>Demonstrativo Financeiro - Período de 2012 a 2020</h1>", unsafe_allow_html=True)
